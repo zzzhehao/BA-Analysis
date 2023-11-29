@@ -26,3 +26,5 @@ cbp3 <- (c("#999999","#FBD173","#FF904D","#DA5858")) # Wolbachia strains
 cbp4 <- (c("#4249C1","#8F7CE4","#DC75A8")) # Haplotypes
 
 cbp5 <- (c("#888888","#35CCC9")) # Control, etracycline
+
+#test
