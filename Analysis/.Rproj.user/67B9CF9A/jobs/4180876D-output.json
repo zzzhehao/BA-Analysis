@@ -1,0 +1,8 @@
+[1,"Installing 'reshape2' ...\n"]
+[2,"trying URL 'https://cran.rstudio.com/bin/macosx/big-sur-x86_64/contrib/4.3/reshape2_1.4.4.tgz'\n"]
+[2,"Content type 'application/x-gzip' length 337220 bytes (329 KB)\n===="]
+[2,"================="]
+[2,"=============================\ndownloaded 329 KB\n\n"]
+[1,"The downloaded binary packages are in\n"]
+[1,"\t/var/folders/ym/g2s5r_4x65zfhf0ycqv0brq80000gn/T//RtmpbiOLV2/downloaded_packages\n"]
+[2,"\n\n✔ Package 'reshape2' successfully installed.\n"]
