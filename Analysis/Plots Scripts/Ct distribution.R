@@ -1,8 +1,8 @@
 library(readxl)
 library(ggpubr)
+library(dplyr) 
 raw <- read_xlsx("/Users/hu_zhehao/Library/Mobile Documents/com~apple~CloudDocs/UHH/B.Sc. Biologie/Bachelorarbeit/DNA Samples/Zhehao_Hu_Bachelorthesis_Data.xlsx", sheet = "Pool Screen", range = "A4:P113") %>% filter(!is.na(Haplotype)) %>% mutate(Gl_ID = as.character(Gl_ID))
 
-library(dplyr) 
 library(stringr)
 
 raw <- raw %>% mutate(Ct = as.numeric(`Ct Mean`)) %>% select(-"Ct Mean")
