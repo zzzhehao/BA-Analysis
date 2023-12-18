@@ -10,7 +10,7 @@ begin taxa;
 end;
 
 begin trees;
-	tree tree_1 = [&R] (HT2:1.0,((HT1:1.0,'HT1*':1.0):1.0,HT3:1.0):1.0);
+	tree tree_1 = [&R] (HT2[&!color=#cb605c]:1.0,((HT1[&!color=#f4d381]:1.0,'HT1*'[&!color=#f4d381]:1.0)[&!color=#f4d381]:1.0,HT3[&!color=#f0965b]:1.0):1.0);
 end;
 
 begin figtree;
@@ -92,7 +92,7 @@ begin figtree;
 	set tipLabels.colorAttribute="User selection";
 	set tipLabels.displayAttribute="Names";
 	set tipLabels.fontName="sansserif";
-	set tipLabels.fontSize=42;
+	set tipLabels.fontSize=48;
 	set tipLabels.fontStyle=0;
 	set tipLabels.isShown=true;
 	set tipLabels.significantDigits=4;
