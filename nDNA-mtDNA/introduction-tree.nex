@@ -1,0 +1,3 @@
+[nuDNA] ((HT2,HT1),HT1*,HT3);
+[mtDNA] (HT2,((HT1,HT1*),HT3));
+[wlyt] (((wLytA2),(wLytA1)),wLytB);
