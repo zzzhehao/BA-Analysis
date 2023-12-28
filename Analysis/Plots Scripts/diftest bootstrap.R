@@ -47,7 +47,7 @@ test_rep <- function(r) {
       rnorm(r, mean = fit.wa2a2.norm$estimate[1], sd = fit.wa2a2.norm$estimate[2])/100, # wa2 x wa2
       rnorm(r, mean = fit.wa2b.norm$estimate[1], sd = fit.wa2b.norm$estimate[2])/100 # wa2 x wb
     ),
-    # Bootstrap Kernel density estimation
+    # Bootstrap Kernel Density Estimation
     c(
       sample(trc.dens.wa2a2$x, size = r, replace = TRUE, prob = trc.dens.wa2a2$y/sum(trc.dens.wa2a2$y))/100, # wa2 x wa2
       sample(trc.dens.wa2b$x, size = r, replace = TRUE, prob = trc.dens.wa2b$y/sum(trc.dens.wa2b$y))/100 # wa2 x wb
@@ -111,13 +111,13 @@ vis <- function (list, title) {
 }
 
 #### Apply tests ####
-size <- c(7, 8, 9, 10, 11, 12) # Set simmulated sample sizes
-iterations <- 1000 # Set iterations
+size <- c(3,4,5,6,7,10,12,15,20,25) # Set simmulated sample sizes
+iterations <- 1000 # Set bootstrap replicate amount
 
 replicates <- map(size, bootstrap) # Calculation
 
 plots <- map2(replicates, size, vis) # Visualization
-rep <- ggarrange(plotlist = plots, nrow = 2) # Plots arrangement
+rep <- ggarrange(plotlist = plots, nrow = 2, ncol = 5) # Plots arrangement
 rep
 
 ggsave(rep, file = "Plots/CI sample size bootstrap.png") # Save
