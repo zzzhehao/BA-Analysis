@@ -11,10 +11,14 @@ w12b <- mcplots[[29]]
 w2b <- mcplots[[12]]
 poswa1 <- mcplots[[1]]
 neg <- mcplots[[2]]
+#0503
+ne8 <- mcplots[[24]]
 #0504
 dd <- mcplots[[27]]
+pev60 <- mcplots[[26]]
 #0823
 poswa2 <- mcplots[[19]]
+
 
 #### Melt Curve Examples ####
 remove_y <- function(){
@@ -48,7 +52,7 @@ ggsave(exmpo1, filename = "Examples/exmp.png", height = 3, width = 10)
 exmpo1
 
 
-#### Melt Curve scenatio Examples ####
+#### Melt Curve scenario Examples ####
 remove_y <- function(){
   theme(
     axis.text.y = element_blank(),
@@ -78,3 +82,14 @@ p_lab <-
 exmpo2 <- (wrap_plots(exmp2, nrow = 1) | p_lab) + plot_annotation(tag_levels = 'A')
 ggsave(exmpo2, filename = "Examples/exmp2.png", height = 3, width = 10)
 exmpo2
+
+#### HT1* exceptions ####
+ne8 <- ne8 +
+  theme.example() +
+  labs(title = "19_Ne_8, 115000 copies per μg DNA")
+pev60 <- pev60 +
+  theme.example() +
+  theme(axis.title.y = element_blank()) +
+  labs(title = "19 Pev 60, 86100 copies per μg DNA")
+ht1ex <- ggarrange(ne8, pev60, nrow = 1, align = "v")
+ggsave(ht1ex, file = "/Users/hu_zhehao/Library/Mobile Documents/com~apple~CloudDocs/UHH/B.Sc. Biologie/Bachelorarbeit/Data Analysis/Analysis/Plots Scripts/ht1ex.png", height = 9, width = 7)

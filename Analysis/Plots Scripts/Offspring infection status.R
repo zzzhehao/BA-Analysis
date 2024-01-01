@@ -12,6 +12,7 @@ library(ggpubr)
 datapath <- "/Users/hu_zhehao/Library/Mobile Documents/com~apple~CloudDocs/UHH/B.Sc. Biologie/Bachelorarbeit/DNA Samples/Zhehao_Hu_Bachelorthesis_Data.xlsx"
 mamas <- read_xlsx(datapath, sheet = "Tetracycline", range = "A3:V61")
 kids <- read_xlsx(datapath, sheet = "Tetracycline Offspring", range = "A3:Y51")
+dsx <- kids
 
 # Data preparation
 mamas <- mamas %>% filter(!is.na(Gl_ID)) %>% mutate(Partner_M = NA) %>% select(-c(6:13,17,19)) %>% filter(`Initial  Target Copies` != "Positive")
@@ -34,6 +35,24 @@ df$copies <- as.numeric(df$copies)
 
 df <- df %>% group_by(PID) %>% mutate(per = copies/max(copies))
 df <- df %>% mutate(disp = paste0(round(per*100, digit = 3),"%"))
+
+# dsx review
+dsx <- dsx %>% filter(!is.na(`dsx Sex`))
+dsxp <- dsx %>% group_by(Group) %>%
+  ggplot() +
+  geom_histogram(aes(x = factor(interaction(Haplotype, Group), levels = c("HT1.Control", "HT1st.Tetracycline", "HT2/2st.Control", "HT2/2st.Tetracycline")), fill = `dsx Sex`),stat = "count", position = position_stack()) +
+  scale_x_discrete(labels = c("HT1 Control", "HT1* Tetracycline", "HT2/2* Control", "HT2/2* Tetracycline")) +
+  theme_USGS_box() +
+  theme(strip.text.x.top = element_text(face = "bold", size = 10),
+
+        aspect.ratio = 1,
+        axis.text.x = element_text(angle = 30, hjust = 1, size = 11)
+  ) +
+  scale_fill_manual(values = c("#4249C1", "#DC75A8"), name = "dsx Result", labels = c("female", "male")) +
+  ylab("Count") +
+  xlab("")
+
+ggsave(dsxp, filename = "Plots/dsx.png", height = 5, width = 5)
 
 #### pfin####
 
