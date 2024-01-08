@@ -44,14 +44,15 @@ dsxp <- dsx %>% group_by(Group) %>%
   scale_x_discrete(labels = c("HT1 Control", "HT1* Tetracycline", "HT2/2* Control", "HT2/2* Tetracycline")) +
   theme_USGS_box() +
   theme(strip.text.x.top = element_text(face = "bold", size = 10),
-
-        aspect.ratio = 1,
-        axis.text.x = element_text(angle = 30, hjust = 1, size = 11)
+        legend.direction = "horizontal",
+        legend.position = c(0.3,0.78),
+        aspect.ratio = 1.2,
+        axis.text.x = element_text(angle = 45, hjust = 1, size = 10)
   ) +
   scale_fill_manual(values = c("#4249C1", "#DC75A8"), name = "dsx Result", labels = c("female", "male")) +
   ylab("Count") +
   xlab("")
-
+dsxp
 ggsave(dsxp, filename = "Plots/dsx.png", height = 5, width = 5)
 
 #### pfin####
@@ -98,6 +99,8 @@ pf1in <-
   theme_USGS_box() +
   theme(strip.text.x.top = element_text(face = "bold", size = 10),
         aspect.ratio = 3,
+        legend.direction = "horizontal",
+        legend.position = c(0.25,0.2),
         axis.text.x = element_text(angle = 45, hjust = 1, size = 10),
         axis.line = element_blank()) +
   scale_fill_manual(values = cbp5) +
@@ -110,9 +113,9 @@ pf1in <-
 pf1in
 
 
-# combine with hatchrate (Reproduction.R)
+# combine with hatchrate, dsx (Reproduction.R)
 
-ggsave(ggarrange(pplot.hatchrate, pf1in, labels = c("A","B"), align = "h"), filename = "Plots/tetracycline rep1.png", height = 4, width = 8)
+ggsave(ggarrange(pplot.hatchrate, pf1in, dsxp, labels = c("A","B", "C"), align = "v", widths = c(5,4,4), nrow = 1), filename = "Plots/tetracycline rep1.png", height = 6, width = 11)
 
 
 #### Pf Family overview old ####
